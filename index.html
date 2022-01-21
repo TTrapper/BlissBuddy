@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>Bliss Buddy</title>
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400" rel='stylesheet' type='text/css'>
+        <link rel='stylesheet' href='main.css'>
+        <link rel='stylesheet' href='circleslider/circleslider.css'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="main.js"></script>
+        <script src="circleslider/circleslider.js"></script>
+    </head>
+    <body>
+    <div class="headfoot">Bliss Buddy. Better Bounces.</div>
+    <div class="headfoot">Many thanks to <a href="https://twitter.com/matthewrayfield">@MatthewRayfield</a> for creating <a href=https://eelcatch.com/lfo-buddy/>LFO Buddy</a>, on which this code based. Also thanks to <a href="https://codepen.io/skyajay">@Skyjay</a> for creating the <a href=https://codepen.io/skyajay/pen/raGGLe>circle sliders</a></div>
+    
+    <pre id="message-banner"></pre>
+    <div id="midi-connect-wrapper">
+        <span id="midi-connect-message"> Select the MIDI outport your pedal is connected to:</span>
+        <ul id="midi-ports"></ul>
+    </div>
+    <div id="lfo-box-template" class="template">
+        <span class="cc-label"></span>
+        <span class="on-off">
+            <span class="on-button dim">on</span> <span class="off-button">off</span>
+        </span>
+
+        <input type="text" class="circle-range-select" value="235;125", data-mindegree="235", data-maxdegree="125">
+        
+        <div class="slidecontainer">
+          <input type="range" class="slider frequency-slider" min="0" max="20" step="0.1" value=1>
+        </div>            
+
+        <label>frequency: </label>
+        <input type="number" step=".1" min="0" max="20" class="frequency input" /> 
+        <label>waveform :</label>
+        <select class="wave-select">
+            <option value="sine" selected="true">sine</option>
+            <option value="square">square</option>
+            <option value="sawtooth">sawtooth</option>
+            <option value="reverse-sawtooth">reverse sawtooth</option>
+            <option value="triangle">triangle</option>
+            <option value="noise">noise</option>
+        </select>
+
+        <div class="canvas-wrapper">
+            <canvas width="300" height="100" class="wave-canvas"></canvas>
+        </div>
+    </div>
+
+    <div class="three-box">
+        <div id="1"></div>
+        <div id="2"></div>
+        <div id="3"></div>
+    </div>
+    <div class="three-box">
+        <div id="4"></div>
+        <div id="5"></div>
+        <div id="6"></div>
+    </div>
+
+    <div class="headfoot">Beta Version</div>
+
+    </body>
+</html>

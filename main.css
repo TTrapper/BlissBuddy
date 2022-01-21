@@ -1,0 +1,180 @@
+body {
+    margin: 0;
+    background: #333333;
+    padding: 5px;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+}
+#message-banner {
+    width: 100%;
+    color: white;
+    color: #ffaaaa;
+    font-size: 20px;
+    font-family: 'Noto Sans', sans-serif;
+    text-align: center;
+    display: none;
+}
+.three-box {
+    display: inline-block;
+
+}
+.lfo-box {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 30px;
+    color: #333333;
+    padding: 10px 20px;
+    border-radius: 2px;
+    display: inline-block;
+    margin: 5px;
+    text-align: left;
+}
+.dim {
+    opacity: .3;
+}
+.blue {
+    background: #46b5ed;
+}
+.green {
+    background: #00d269;
+}
+.white {
+    background: #ffffff;
+}
+.orange {
+    background: #ff6d17;
+}
+.top {
+    white-space: nowrap;
+}
+.cc-label {
+    cursor: default;
+}
+.on-off {
+    float: right;
+    cursor: pointer;
+    color: red;
+}
+.canvas-wrapper {
+    min-width: 300px;
+    max-height: 10%;
+}
+.wave {
+    clear: both;
+    font-size: 15px;
+}
+.template {
+    display: none;
+}
+#midi-connect-wrapper{
+    margin:auto;
+    width:50%;
+    font-size:20px;
+    color: #ffaaaa;
+    font-weight:bold;
+}
+#midi-ports {
+    border:2px solid white;
+    color:black;
+    width: 80%;
+    margin: auto;
+    padding:0;
+}
+#midi-ports li {
+    list-style-type: none;
+    font-family:'Noto Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+li:nth-child(odd) {
+    background:grey;
+}
+li:nth-child(even) {
+    background:white;
+}
+
+#midi-ports .active {
+    background: #46b5ed;
+}
+.wave-select {
+    border: 1px solid black;
+    background: none;
+    border: none;
+    border-radius: 0px;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 15px;
+    color: #333333;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    outline: none;
+    width: 50px;
+    cursor: pointer;
+}
+.control-box {
+    margin: 10px 0;
+}
+.control-wrapper {
+    display:inline;
+    float: right;
+}
+label {
+    font-size: 15px;
+    display: inline-block;
+}
+.input {
+    font-size: 15px;
+    width: 40px;
+    vertical-align: middle;
+    border: none;
+    background: none;
+    text-align: right;
+    color: #333333;
+    border-bottom: 3px dashed #333333;
+    outline: none;
+}
+.headfoot {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 15px;
+    color: white;
+    margin: 15px 0;
+}
+.headfoot a {
+    color: white;
+}
+.slidecontainer {
+    width: 100%;
+}
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 25px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #04AA6D; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #04AA6D; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
