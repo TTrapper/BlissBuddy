@@ -56,7 +56,6 @@ body {
 }
 .canvas-wrapper {
     min-width: 300px;
-    max-height: 10%;
 }
 .wave {
     clear: both;

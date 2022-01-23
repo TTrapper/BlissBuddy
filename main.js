@@ -6,7 +6,7 @@ var midiConnectWrapper,
     midiListeners = [];
 
 function LFOBox(settings) {
-    var 
+    var
         div = settings.div,
         on = settings.on || false,
         waveType = settings.waveType || 'sine',
@@ -28,7 +28,7 @@ function LFOBox(settings) {
         onOffWrapper = div.getElementsByClassName('on-off')[0],
         onButton = div.getElementsByClassName('on-button')[0],
         offButton = div.getElementsByClassName('off-button')[0],
-        circleRangeSelect = div.getElementsByClassName('circle-range-select')[0], 
+        circleRangeSelect = div.getElementsByClassName('circle-range-select')[0],
         canvasWrapper = div.getElementsByClassName('canvas-wrapper')[0],
         waveCanvas = div.getElementsByClassName('wave-canvas')[0],
         noiseButton = div.getElementsByClassName('noise-button')[0],
@@ -68,10 +68,11 @@ function LFOBox(settings) {
         context.lineCap = 'round';
         context.lineJoin = 'round';
         context.strokeStyle = '#333333';
-
         for (x = 0; x <= waveLength - 6; x += 1) {
 
-            y =  (100 * (waveData[x] || 0) + 100);
+            y = -1 * (waveData[x] || 0);
+            // Make the wave fit the canvas
+            y = ((context.canvas.clientHeight - context.lineWidth) * y) + (0.5 * context.lineWidth);
 
             if (x == 0) {
                 context.moveTo(x+3, y);
@@ -93,7 +94,7 @@ function LFOBox(settings) {
 
         if (on) {
             step = (getTime() % (1000 / frequency)) / (1000 / frequency);
-    
+
             sweepstart = $(circleRangeSelect).attr('percent-value-1') / 100;
             sweepend = $(circleRangeSelect).attr('percent-value-2') / 100;
             bottom = Math.min(sweepstart, sweepend);
@@ -115,7 +116,7 @@ function LFOBox(settings) {
         }
         setTimeout(sendCC, 20); // TODO how fast should it be?
     }
-     
+
 
     function getInputValues() {
         frequency = frequencyInput.value;
@@ -207,41 +208,41 @@ function setupMIDIInput() {
     });
 }
 
-function connectMITIOut(portName){
+function connectMIDIOut(portName){
     midiAccess.outputs.forEach(function (output) {
-        if (output.name.indexOf(portName) > -1) { 
+        if (output.name.indexOf(portName) > -1) {
             midiOutput = output;
         }
     });
 }
 
-function setupMIDIOutput() {
-    var midiOutList = document.getElementById('midi-ports'); 
+function buildMIDIOutList() {
+    var midiOutList = document.getElementById('midi-ports');
     midiOutList.innerHTML = '';
-    foundMidiOut = false;
     midiAccess.outputs.forEach(function (output) {
-        if (output.name.indexOf('Midi Through Port') == -1) { 
-            foundMidiOut = true;
-        }
         var li = document.createElement('li');
-        li.innerHTML = output.name;        
+        if (output == midiOutput) {
+           $(li).addClass('active');
+        }
+        li.innerHTML = output.name;
         midiOutList.appendChild(li);
         li.addEventListener('click', function(event) {
            $('#midi-ports li').removeClass('active');
-           $(li).addClass('active'); 
-           connectMITIOut(event.target.innerHTML);
-
+           $(event.target).addClass('active');
+           connectMIDIOut(event.target.innerHTML);
         });
     });
+}
 
-    if (!foundMidiOut) {
+function setupMIDIOutput(event) {
+    if (midiAccess.outputs.size == 0) {
         showBanner('Could not find any MIDI out channels &#128542;\nEnsure connection &#128515;');
     }
     else {
         hideBanner();
     }
+    buildMIDIOutList();
 }
-
 
 function onMIDIInit(midi) {
     midiAccess = midi;
