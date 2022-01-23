@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background: #333333;
+    background: #ffe1f9;
     padding: 5px;
     text-align: center;
     -webkit-font-smoothing: antialiased;
@@ -27,12 +27,13 @@ body {
     display: inline-block;
     margin: 5px;
     text-align: left;
+    border-radius: 5%;
 }
 .dim {
     opacity: .3;
 }
 .blue {
-    background: #46b5ed;
+    background: #78c2f7;
 }
 .green {
     background: #00d269;
@@ -68,11 +69,12 @@ body {
     margin:auto;
     width:50%;
     font-size:20px;
-    color: #ffaaaa;
+    color: red;
     font-weight:bold;
 }
 #midi-ports {
-    border:2px solid white;
+    border:5px solid #78c2f7;
+    border-radius: 5px;
     color:black;
     width: 80%;
     margin: auto;
@@ -84,15 +86,16 @@ body {
     margin: 0;
     padding: 0;
 }
+
 li:nth-child(odd) {
-    background:grey;
+    background:#ffe1f9;
 }
 li:nth-child(even) {
     background:white;
 }
 
 #midi-ports .active {
-    background: #46b5ed;
+    background: #78c2f7;
 }
 .wave-select {
     border: 1px solid black;
@@ -133,12 +136,17 @@ label {
 }
 .headfoot {
     font-family: 'Noto Sans', sans-serif;
-    font-size: 15px;
-    color: white;
+    font-size: 20px;
+    font-weight: bolder;
+    color: #78c2f7;
     margin: 15px 0;
 }
 .headfoot a {
-    color: white;
+    color: #8ba2d6;
+}
+.title {
+    font-size: 30px;
+    text-shadow: 1px 1px #ff0000;
 }
 .slidecontainer {
     width: 100%;
@@ -167,13 +175,13 @@ label {
   appearance: none;
   width: 25px; /* Set a specific slider handle width */
   height: 25px; /* Slider handle height */
-  background: #04AA6D; /* Green background */
+  background: #ffe1f9; /* Handle color */
   cursor: pointer; /* Cursor on hover */
 }
 
 .slider::-moz-range-thumb {
   width: 25px; /* Set a specific slider handle width */
   height: 25px; /* Slider handle height */
-  background: #04AA6D; /* Green background */
+  background: #ffc7f3; /* Handle color */
   cursor: pointer; /* Cursor on hover */
 }

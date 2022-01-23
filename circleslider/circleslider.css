@@ -31,7 +31,8 @@ input.circle-range-select{display:none}
 }
 .circle-range-select-wrapper .selected-range{
     position:absolute;
-    z-index:1;color:orange;
+    z-index:1;
+    color:#ffc7f3;
 }
 .circle-range-select-wrapper .values{
     position:absolute;
