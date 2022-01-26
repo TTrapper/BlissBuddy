@@ -175,7 +175,7 @@ label {
   appearance: none;
   width: 25px; /* Set a specific slider handle width */
   height: 25px; /* Slider handle height */
-  background: #ffe1f9; /* Handle color */
+  background: #ff8195; /* Handle color */
   cursor: pointer; /* Cursor on hover */
 }
 
