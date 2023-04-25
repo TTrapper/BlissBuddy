@@ -12,10 +12,35 @@
     <div class="headfoot title">Bliss Buddy. Better Bounces.</div>
     <div class="headfoot">Check out the project on <a href="https://github.com/TTrapper/BlissBuddy/">Github</a></div>
     <pre id="message-banner"></pre>
-    <div id="midi-connect-wrapper">
-        <span id="midi-connect-message"> Select the MIDI outport your pedal is connected to:</span>
-        <ul id="midi-ports"></ul>
+
+<div id="midi-connect-wrapper">
+    <span id="midi-connect-message"> Select the MIDI outport your pedal is connected to:</span>
+    <ul id="midi-ports"></ul>
+    <div id="midi-channel-wrapper">
+        <label for="midi-channel-select">MIDI Channel (default is 2 for Chase Bliss pedals):</label>
+        <select id="midi-channel-select">
+            <option value="1">1</option>
+            <option value="2" selected>2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+        </select>
     </div>
+    <button id="change-midi-channel" title="To put the pedal into MIDI channel change mode, unplug the power, hold down both footswitches, and then plug the power back in while still holding the footswitches. Release the footswitches when you see the LED light up. Now select the desired MIDI channel and click this button to tell your pedal to switch to that channel! It will stay on that channel unless you decided to change it again.">Change Chase Bliss Pedal MIDI Channel</button>
+
+</div>
+
     <div id="lfo-box-template" class="template">
         <span class="cc-label"></span>
         <span class="on-off">

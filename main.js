@@ -2,6 +2,7 @@ var midiConnectWrapper,
     midiAccess,
     midiOutput,
     messageBanner,
+    midiChannel = 2,
     timeOffset = 0,
     midiListeners = [];
 
@@ -104,7 +105,7 @@ function LFOBox(settings) {
             $(circleRangeSelect).drawBlip(100 * value);
 
             if (midiOutput) {
-                midiOutput.send([0xB1, settings.ccNumber + 13, 127 * value]);
+                midiOutput.send([0xB0 + (midiChannel - 1), settings.ccNumber + 13, 127 * value]);
             }
         }
 
@@ -257,6 +258,23 @@ function onMIDIReject(err) {
 
 
 // Setup
+window.onload = function () {
+    document.getElementById("midi-channel-select").addEventListener("change", function (event) {
+        midiChannel = parseInt(event.target.value, 10);
+    });
+
+    document.getElementById("change-midi-channel").addEventListener("click", function () {
+        if (midiOutput) {
+            midiOutput.send([0xC0 | (midiChannel - 1), midiChannel - 1]);
+            showBanner("MIDI Channel change message sent to Chase Bliss Pedal on Channel: " + midiChannel);
+            setTimeout(hideBanner, 3000);
+        } else {
+            showBanner("No MIDI output selected. Please select a MIDI output port.");
+            setTimeout(hideBanner, 3000);
+        }
+    });
+};
+
 window.addEventListener('load', function () {
 
     var template = document.getElementById('lfo-box-template').innerHTML,
